@@ -7,21 +7,30 @@
 	<script type="text/javascript">
     $(document).ready(function(){
     	$('.bounce').mouseover(function(){
-    		var x = document.body.offsetWidth;
-    		var y = document.body.offsetHeight;
-    		var height = $(this).css('height');
-    		var width = $(this).css('width');
+    		var x = window.innerWidth;
+    		var y = window.innerHeight;
+    		var height = parseInt($(this).css('height'));
+    		var width = parseInt($(this).css('width'));
     		var z = 200;
-    		var a = $(this).css('left');
-    		$(this).css('left','+='+z+'px');
-
-    		alert(a);
+    		var a = parseInt($(this).css('left'));
+            var b = parseInt($(this).css('top'));
+            var array = [a,b,(x-a-width),(y-b-height)];
+            var max = Math.max.apply(Math, array);
+            switch(max){
+                case a:
+                $(this).css('left','-='+z+'px');break;
+                case b:
+                $(this).css('top','-='+z+'px');break;
+                case (x-a-width):
+                $(this).css('left','+='+z+'px');break;
+                case (y-b-height):
+                $(this).css('top','+='+z+'px');break;
+            }
     	});
     });
 	</script>
 </head>
 <body>
-	<h1>Catch me if u can!!</h1>
 	<div class="bounce"></div>
 </body>
 </html>
