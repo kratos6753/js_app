@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+	<title>js_app</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+	<script type="text/javascript">
+    $(document).ready(function(){
+    	$('.bounce').mouseover(function(){
+    		var x = document.body.offsetWidth;
+    		var y = document.body.offsetHeight;
+    		var height = $(this).css('height');
+    		var width = $(this).css('width');
+    		var z = 200;
+    		var a = $(this).css('left');
+    		$(this).css('left','+='+z+'px');
+
+    		alert(a);
+    	});
+    });
+	</script>
+</head>
+<body>
+	<h1>Catch me if u can!!</h1>
+	<div class="bounce"></div>
+</body>
+</html>
